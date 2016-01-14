@@ -5,3 +5,6 @@ RUN git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.v
 
 ADD vimrc /root/.vimrc
 RUN vim +PluginInstall +qall && cd ~/.vim/bundle/YouCompleteMe && python2.7 ./install.py --clang-completer
+
+RUN apt-get update && apt-get -y install tmux
+ADD tmux.conf /root/.tmux.conf
